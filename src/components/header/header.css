@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+.header__items {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+
+a:visited {
+   color: black;
+}
