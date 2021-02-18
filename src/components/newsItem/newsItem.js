@@ -1,7 +1,8 @@
+import React from 'react'
 import './newsItem.css';
 
-export default function NewsItem(props) {
+export default function NewsItem() {
     return (
-        <div className="newsItem">Новостной блок</div>
+        <div className="news-item">Новостной блок</div>
     );
 }

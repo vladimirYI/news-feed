@@ -1,8 +1,8 @@
-.ulStyle{
+.header {
     display: flex;
     justify-content: space-around;
 }
-.liStyle{
+.header__items {
     list-style-type: none;
 }
 a {

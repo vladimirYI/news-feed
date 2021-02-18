@@ -1,9 +1,10 @@
+import React from 'react'
 import NewsItem from '../newsItem';
 import './newsItems.css';
 
-export default function NewsItems(props) {
+export default function NewsItems() {
     return (
-        <div className="newsItems">
+        <div className="news-items">
             <h2>Блок с новостями</h2>
             <NewsItem/>
             <NewsItem/>
