@@ -1,0 +1,8 @@
+.newsitems {
+    margin-top: 20px;
+    min-height: 800px;
+    border: 2px double black;
+}
+.newsitems__title {
+    text-align: center;
+}
