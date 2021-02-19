@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.header__categories {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: 2px double black;
+}
+.header__items {
+    margin: 0 90px;
+    list-style-type: none;
+}
+.header__logo {
+    border: 2px double black;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+   color: black;
+}

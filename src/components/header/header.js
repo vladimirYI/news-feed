@@ -1,16 +1,19 @@
 import React from 'react'
-import './header.css';
+import style from './Header.module.css';
 import PropTypes from 'prop-types';
-
 export default function Header(props) {
     let listCategory = props.categories.map((category, index) => 
-        <li className="header__items" key={index}><a href="#"> {category} </a></li>
+        <li className={style.header__items} key={index}><a href="#"> {category} </a></li>
     );
     return (
-        <ul className='header'>{listCategory}</ul>
+        <div className={style.header}>
+            <a className={style.header__logo} href="#">logo</a>
+            <ul className={style.header__categories}>{listCategory}</ul>
+        </div>
+        
     );
 }
 
 Header.propTypes = {
     categories: PropTypes.array
-  };
+};

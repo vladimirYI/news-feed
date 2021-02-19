@@ -1,0 +1,24 @@
+.newsitem {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 900px;
+    height: 200px;
+    border: 2px double black;
+}
+.newsitem__descr {
+    width: 300px;
+    margin-top: 10px;
+}
+button {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    margin: 5px 5px 0 0;
+    background-color: #008CBA;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}

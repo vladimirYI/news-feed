@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
+import style from './App.module.css';
 import Header from '../header';
 import NewsItems from '../newsItems';
 import Footer from '../footer';
 
-/* import './app.css'; */
-
 function App() {
   return (
-    <div>
-      <Header categories = {['category 1', 'category 2', 'category 3']} />
+    <div className={style.app}>
+      <Header categories = {['Category 1', 'Category 2', 'Category 3']} />
       <NewsItems/>
       <Footer/>
     </div>
