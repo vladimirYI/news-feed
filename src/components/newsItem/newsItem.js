@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './NewsItem.module.css';
 import PropTypes from 'prop-types';
+import style from './NewsItem.module.css';
 export default function NewsItem(props) {
     return (
         <div className={style.newsitem}>

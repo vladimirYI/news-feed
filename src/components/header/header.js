@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './Header.module.css';
 import PropTypes from 'prop-types';
+import style from './Header.module.css';
 export default function Header(props) {
     let listCategory = props.categories.map((category, index) => 
         <li className={style.header__items} key={index}><a href="#"> {category} </a></li>
