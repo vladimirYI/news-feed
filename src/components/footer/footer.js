@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './Footer.module.css';
 import img from './down-arrow.png';
+import style from './Footer.module.css';
 
 export default function Footer() {
     return (
