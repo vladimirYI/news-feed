@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import NewsItem from '../newsItem';
 import NewsService from '../../services/newsService';
-import style from './NewsItems.module.css';
+import style from './Pages.module.css';
 
-export default class NewsItems extends Component {
+
+export class TechnologyPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +14,7 @@ export default class NewsItems extends Component {
     componentDidMount() {
         const news = new NewsService();
 
-        news.getAllNews()
+        news.getAllNewsTechnology()
             .then((data) => {
                 this.setState({
                     articles: data.articles
@@ -23,8 +24,8 @@ export default class NewsItems extends Component {
     render() {
         return (
             <div className={style.newsitems}>
-                <h2 className={style.newsitems__title}>Главная страница</h2>
-                {this.state.articles.map((item, index) => (<NewsItem key = {index} data = {item}/>))}
+                <h2 className={style.newsitems__title}>Технологии</h2>
+                {this.state.articles.map((item, index) => <NewsItem key = {index} data = {item}/>)}
             </div>
         );
     } 
