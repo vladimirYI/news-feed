@@ -11,6 +11,14 @@
     width: 300px;
     margin-top: 10px;
 }
+.newsitem__title {
+    width: 300px;
+    
+}
+.newsitem__img {
+    width: 300px;
+    height: 200px;
+}
 button {
     width: 70px;
     height: 35px;

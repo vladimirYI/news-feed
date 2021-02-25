@@ -1,6 +1,6 @@
 export default class NewsService {
     constructor() {
-        this._apiBase = 'http://newsapi.org/v2/top-headlines?country=us&category=';
+        this._apiBase = 'http://newsapi.org/v2/top-headlines?country=us&';
     }
 
     async getResource (url) {
@@ -11,13 +11,17 @@ export default class NewsService {
         }
         return await res.json();
     }
+     
+    getAllNews() {
+        return this.getResource('pageSize=5&apiKey=')
+    }
     getAllNewsScience() {
-        return this.getResource('science&pageSize=3&apiKey=')
+        return this.getResource('category=science&pageSize=3&apiKey=')
     }
     getAllNewsSports() {
-        return this.getResource('sports&pageSize=3&apiKey=')
+        return this.getResource('category=sports&pageSize=3&apiKey=')
     }
     getAllNewsTechnology() {
-        return this.getResource('technology&pageSize=3&apiKey=')
-    }
+        return this.getResource('category=technology&pageSize=3&apiKey=')
+    } 
 }
