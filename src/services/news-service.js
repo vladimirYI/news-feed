@@ -1,4 +1,4 @@
-export default class NewsService {
+class NewsService {
     constructor() {
         this._apiBase = 'http://newsapi.org/v2/top-headlines?country=us&';
     }
@@ -25,3 +25,5 @@ export default class NewsService {
         return this.getResource('category=technology&pageSize=3&apiKey=')
     } 
 }
+
+export {NewsService};

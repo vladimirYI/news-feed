@@ -1,5 +1,3 @@
-import  {SportsPage} from './sportsPage';
-import {TechnologyPage} from './technologyPage';
-import {SciencePage} from './sciencePage';
-
-export {SportsPage, TechnologyPage, SciencePage};
+export {SportsPage} from './sports-page';
+export {TechnologyPage} from './technology-page';
+export {SciencePage} from './science-page';
