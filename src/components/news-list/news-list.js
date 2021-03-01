@@ -1,15 +1,19 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState} from 'react';
 import {NewsItem} from '../news-item';
 import {NewsService} from '../../services/news-service';
-import {ThemeContext} from '../theme';
 import {ErrorMessage} from '../error-message';
-import style from './NewsItems.module.css';
+import {Spinner} from '../spinner';
+import {useSelector} from 'react-redux';
+import {selectTheme} from '../../store';
+import {Themes} from '../../store';
+import cx from 'classnames';
+import style from './NewsList.module.css';
 
-function NewsItems() {
+function NewsList() {
     const [state, setState] = useState([]);
     const [hasError, setHasError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const theme = useContext(ThemeContext);
+    const {theme} = useSelector(selectTheme);
 
     useEffect(() => {
         setLoading(true);
@@ -30,17 +34,22 @@ function NewsItems() {
     }, [])
 
     return (
-        <div className={style.newsitems} style={theme}>
-            {loading ? 
-            <div>Loading ...</div>:
-            hasError ?
-            <ErrorMessage/>:
-            state.map((item) => <NewsItem key={item.url} data = {item}/>)}
+        <div className={cx({
+            [style.newslist]: true,
+            [style.newslist_dark]: theme === Themes.dark,
+            [style.newslist_light]: theme === Themes.light
+        })}>
+            {loading
+            ? <Spinner/>
+            : hasError 
+                ? <ErrorMessage/>
+                : state.map((item) => <NewsItem key={item.url} data = {item}/>)}
         </div>
     );
 }
 
-export {NewsItems};
+export {NewsList};
+
 
 
 

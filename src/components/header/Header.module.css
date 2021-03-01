@@ -4,22 +4,29 @@
 }
 .header__categories {
     display: flex;
-    justify-content: space-around;
-    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 500px;
     margin: 0;
     padding: 0;
-    border: 2px double black;
 }
 .header__items {
-    margin: 0 90px;
     list-style-type: none;
-}
-.header__logo {
-    border: 2px double black;
 }
 a {
     text-decoration: none;
 }
 a:visited {
    color: black;
+}
+.header_dark {
+    color: white;
+    background: black;
+}
+.header_dark a {
+    color: white;
+}
+.header_light {
+    color: black;
+    background: white;
 }

@@ -1,11 +1,12 @@
 import React from 'react';
 import img from './error.jpg'
+import style from './ErrorMessage.module.css';
+
 function ErrorMessage() {
     return (
-        <>
-            <h2>Что то пошло не так...</h2>
+        <div className={style.error}>
             <img src={img} alt="error"/>
-        </>
+        </div>
     );
 }
 

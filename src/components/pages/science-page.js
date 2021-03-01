@@ -1,15 +1,19 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState} from 'react';
 import {NewsItem} from '../news-item';
 import {NewsService} from '../../services/news-service';
-import {ThemeContext} from '../theme';
 import {ErrorMessage} from '../error-message';
+import {Spinner} from '../spinner';
+import {useSelector} from 'react-redux';
+import {selectTheme} from '../../store';
+import {Themes} from '../../store';
+import cx from 'classnames';
 import style from './Pages.module.css';
 
 function SciencePage() {
     const [state, setState] = useState([]);
     const [hasError, setHasError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const theme = useContext(ThemeContext);
+    const {theme} = useSelector(selectTheme);
 
     useEffect(() => {
         setLoading(true);
@@ -30,12 +34,16 @@ function SciencePage() {
     }, [])
 
     return (
-        <div className={style.newsitems} style={theme}>
-            {loading ? 
-            <div>Loading ...</div>:
-            hasError ?
-            <ErrorMessage/>:
-            state.map((item) => <NewsItem key={item.url} data = {item}/>)}
+        <div className={cx({
+            [style.pages]: true,
+            [style.pages_dark]: theme === Themes.dark,
+            [style.pages_light]: theme === Themes.light
+        })}>
+            {loading
+            ? <Spinner/>
+            : hasError 
+                ? <ErrorMessage/>
+                : state.map((item) => <NewsItem key={item.url} data = {item}/>)}
         </div>
     );
 }
