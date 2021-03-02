@@ -1,0 +1,19 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.pagination__item{
+    margin: 0 10px;
+}
+
+.inactive{
+    background-color: #666;
+}
+
+.active{
+    background-color: red;
+}
+

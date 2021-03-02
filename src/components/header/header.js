@@ -29,7 +29,7 @@ function Header() {
                 onClick={() => dispatch(themeSlice.actions.toggleTheme())}>CHANGE
             </Button>
 
-        </div>    
+        </div>  
     );
 }
 

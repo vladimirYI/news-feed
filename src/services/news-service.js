@@ -1,6 +1,7 @@
 class NewsService {
     constructor() {
         this._apiBase = 'http://newsapi.org/v2/top-headlines?country=us&';
+        this.numberNews = 40;
     }
 
     async getResource (url) {
@@ -11,18 +12,18 @@ class NewsService {
         }
         return await res.json();
     }
-     
+    
     getAllNews() {
-        return this.getResource('pageSize=5&apiKey=')
+        return this.getResource(`pageSize=${this.numberNews}&apiKey=`)
     }
     getAllNewsScience() {
-        return this.getResource('category=science&pageSize=3&apiKey=')
+        return this.getResource(`category=science&pageSize=${this.numberNews}&apiKey=`)
     }
     getAllNewsSports() {
-        return this.getResource('category=sports&pageSize=3&apiKey=')
+        return this.getResource(`category=sports&pageSize=${this.numberNews}&apiKey=`)
     }
     getAllNewsTechnology() {
-        return this.getResource('category=technology&pageSize=3&apiKey=')
+        return this.getResource(`category=technology&pageSize=${this.numberNews}&apiKey=`)
     } 
 }
 

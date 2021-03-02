@@ -5,6 +5,7 @@ import {ErrorMessage} from '../error-message';
 import {Spinner} from '../spinner';
 import {useSelector} from 'react-redux';
 import {selectTheme} from '../../store';
+import {Pagination} from '../pagination';
 import {Themes} from '../../store';
 import cx from 'classnames';
 import style from './Pages.module.css';
@@ -13,7 +14,15 @@ function TechnologyPage() {
     const [state, setState] = useState([]);
     const [hasError, setHasError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [newsPerPage] = useState(5);
     const {theme} = useSelector(selectTheme);
+
+    const indexOfLastNews = currentPage * newsPerPage;
+    const indexOfFirstNews = indexOfLastNews - newsPerPage;
+    const currentNews = state.slice(indexOfFirstNews, indexOfLastNews);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     useEffect(() => {
         setLoading(true);
@@ -43,7 +52,8 @@ function TechnologyPage() {
             ? <Spinner/>
             : hasError 
                 ? <ErrorMessage/>
-                : state.map((item) => <NewsItem key={item.url} data = {item}/>)}
+                : currentNews.map((item) => <NewsItem key={item.url} data = {item}/>)}
+            <Pagination newsPerPage={newsPerPage} totalNews={state.length} paginate={paginate}/>
         </div>
     );
 }

@@ -14,8 +14,10 @@
     margin-top: 10px;
 }
 .newsitem__title {
-    width: 300px;
-    
+    width: 300px; 
+}
+.newsitem__info{
+    width: 180px;
 }
 .newsitem__img {
     width: 300px;
