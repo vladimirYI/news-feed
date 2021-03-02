@@ -1,12 +1,12 @@
-.pages {
+.newslist {
     margin-top: 20px;
     border: 1px double #8080801c;
 }
-.pages_dark {
+.newslist_dark {
     color: white;
     background: black;
 }
-.pages_light {
+.newslist_light {
     color: black;
     background: white;
 }
