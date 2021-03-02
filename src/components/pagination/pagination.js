@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import style from './Pagination.module.css';
 
-function Pagination ({newsPerPage, totalNews, paginate}) {
+export function Pagination ({newsPerPage, totalNews, paginate}) {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalNews / newsPerPage); i++) {
@@ -28,6 +28,4 @@ Pagination.propTypes = {
     newsPerPage: PropTypes.number,
     totalNews: PropTypes.number,
     paginate: PropTypes.func
-  };
-
-export {Pagination};
+};

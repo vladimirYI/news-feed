@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
 import style from './NewsItem.module.css';
-function NewsItem(props)  {
-    let {title, urlToImage, content, publishedAt, author} = props.data;
+export function NewsItem({data})  {
+    let {title, urlToImage, content, publishedAt, author} = data;
     
     let newTime = publishedAt.slice(0,10);
     let newTitle = title.slice(0,30)+"...";
@@ -31,9 +30,9 @@ function NewsItem(props)  {
                 <div>{author}</div>
                 <div>{newTime}</div>
             </div>
-            <Button variant="contained" color="primary">
+            <button className={style.newsitem__button}>
                 Read
-            </Button>
+            </button>
         </div>
     );
 }
@@ -41,5 +40,3 @@ function NewsItem(props)  {
 NewsItem.propTypes = {
     data: PropTypes.object
 };
-
-export {NewsItem};

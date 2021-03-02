@@ -6,11 +6,12 @@ import {Spinner} from '../spinner';
 import {useSelector} from 'react-redux';
 import {selectTheme} from '../../store';
 import {Pagination} from '../pagination';
+import PropTypes from 'prop-types';
 import {Themes} from '../../store';
 import cx from 'classnames';
 import style from './NewsList.module.css';
 
-function NewsList() {
+export function NewsList({category}) {
     const [state, setState] = useState([]);
     const [hasError, setHasError] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ function NewsList() {
         let mounted = true;
         const news = new NewsService();
 
-        news.getAllNews()
+        news.getNews(category)
             .then(data => { if (mounted) {
                 setState(data.articles);
                 setLoading(false);
@@ -48,18 +49,19 @@ function NewsList() {
             [style.newslist_dark]: theme === Themes.dark,
             [style.newslist_light]: theme === Themes.light
         })}>
+
             {loading
             ? <Spinner/>
             : hasError 
                 ? <ErrorMessage/>
                 : currentNews.map((item) => <NewsItem key={item.url} data = {item}/>)}
             <Pagination newsPerPage={newsPerPage} totalNews={state.length} paginate={paginate}/>
+            
         </div>
     );
+    
 }
 
-export {NewsList};
-
-
-
-
+NewsList.propTypes = {
+    category: PropTypes.string
+};

@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "-": "0.0.1",
-    "@material-ui/core": "^4.11.3",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -18,7 +17,6 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "react-spinners": "^0.10.6",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",

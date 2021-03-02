@@ -1,9 +1,7 @@
 import React from 'react';
 
-function ItemDetails() {
+export function ItemDetails() {
     return (
         <h2>Страница новости</h2>
     );
 }
-
-export {ItemDetails};
