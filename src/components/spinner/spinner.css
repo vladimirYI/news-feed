@@ -1,13 +1,11 @@
-
-.spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 @keyframes ldio-jjk4qytgeei {
   0% { transform: translate(-50%,-50%) rotate(0deg); }
   100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ldio-jjk4qytgeei div {
   position: absolute;

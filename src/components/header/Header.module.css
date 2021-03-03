@@ -12,6 +12,8 @@
 }
 .header__items {
     list-style-type: none;
+    text-decoration: none;
+    color: black;
 }
 .header__button {
     width: 70px;
@@ -23,20 +25,19 @@
     font-size: 12px;
     cursor: pointer;
 }
-a {
-    text-decoration: none;
-}
-a:visited {
-   color: black;
-}
 .header_dark {
-    color: white;
     background: black;
+    transition: background 0.5s;
 }
 .header_dark a {
     color: white;
+    transition: color 1s;
 }
 .header_light {
-    color: black;
     background: white;
+    transition: background 0.5s;
+}
+.header_light a {
+    color: black;
+    transition: color 1s;
 }

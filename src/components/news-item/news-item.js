@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {format, parseISO} from 'date-fns'
 import style from './NewsItem.module.css';
-export function NewsItem({data})  {
+function NewsItem({data})  {
+    
     let {title, urlToImage, content, publishedAt, author} = data;
     
-    let newTime = publishedAt.slice(0,10);
-    let newTitle = title.slice(0,30)+"...";
+    let parseDate = parseISO(publishedAt);
+    let newTime = format(parseDate, 'dd/MMM/y kk:mm');
+    
+    let newTitle = title.slice(0,40)+"...";
 
     if (urlToImage === null) {
         urlToImage = 'https://via.placeholder.com/300x200' 
@@ -40,3 +44,5 @@ export function NewsItem({data})  {
 NewsItem.propTypes = {
     data: PropTypes.object
 };
+
+export default React.memo(NewsItem);

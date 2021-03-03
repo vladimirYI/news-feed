@@ -5,8 +5,10 @@
 .newslist_dark {
     color: white;
     background: black;
+    transition: background 0.5s, color 1s;
 }
 .newslist_light {
     color: black;
     background: white;
+    transition: background 0.5s, color 1s;
 }

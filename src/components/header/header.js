@@ -12,6 +12,14 @@ export function Header() {
     const {theme} = useSelector(selectTheme);
     const dispatch = useDispatch();
 
+    if (theme === Themes.dark) {
+        document.body.classList.add('body_dark');
+        document.body.classList.remove('body_light');
+    } else if (theme === Themes.light) {
+        document.body.classList.remove('body_dark');
+        document.body.classList.add('body_light');
+    }
+    
     return (
         <div className={cx({
             [style.header]: true,
@@ -29,7 +37,6 @@ export function Header() {
                 className={style.header__button}
                 onClick={() => dispatch(themeSlice.actions.toggleTheme())}>CHANGE
             </button>
-
         </div>  
     );
 }

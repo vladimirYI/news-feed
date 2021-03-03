@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import {NewsItem} from '../news-item';
+import NewsItem from '../news-item';
 import {NewsService} from '../../services/news-service';
 import {ErrorMessage} from '../error-message';
 import {Spinner} from '../spinner';
@@ -56,10 +56,8 @@ export function NewsList({category}) {
                 ? <ErrorMessage/>
                 : currentNews.map((item) => <NewsItem key={item.url} data = {item}/>)}
             <Pagination newsPerPage={newsPerPage} totalNews={state.length} paginate={paginate}/>
-            
         </div>
     );
-    
 }
 
 NewsList.propTypes = {
