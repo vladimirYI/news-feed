@@ -4,4 +4,5 @@ export const routes = {
     sports: "/sports",
     science: "/science",
     itemDetails: "/item-details",
+    filterList: "/filter-list"
 };

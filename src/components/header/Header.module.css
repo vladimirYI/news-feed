@@ -13,6 +13,16 @@
 .header__items {
     list-style-type: none;
 }
+.header__button {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: #008CBA;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
 a {
     text-decoration: none;
 }
