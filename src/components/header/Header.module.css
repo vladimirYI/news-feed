@@ -2,18 +2,17 @@
     display: flex;
     justify-content: space-between;
 }
-.header__categories {
+.header__menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 500px;
+    width: 500px;
     margin: 0;
     padding: 0;
-}
-.header__items {
     list-style-type: none;
+}
+.header__link {
     text-decoration: none;
-    color: black;
 }
 .header__button {
     width: 70px;
@@ -24,6 +23,7 @@
     color: #fff;
     font-size: 12px;
     cursor: pointer;
+    
 }
 .header_dark {
     background: black;
@@ -40,4 +40,17 @@
 .header_light a {
     color: black;
     transition: color 1s;
+}
+
+@media (max-width: 768px) {
+    .header__menu {
+        justify-content: space-between;
+        width: 300px;
+    }
+    .header__button {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
