@@ -1,8 +1,7 @@
 import React from 'react';
 import {Header} from '../header';
 import {NewsList} from '../news-list';
-/* import {ItemDetails} from '../item-details'; */
-import {Footer} from '../footer';
+import {ItemDetails} from '../item-details';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from '../../store';
@@ -10,7 +9,6 @@ import {routes} from '../constants';
 import style from './App.module.css';
 
 export function App() {
-
   return (
     <Provider store={store}>
       <Router>
@@ -20,12 +18,9 @@ export function App() {
           <Route path={routes.technology} render={()=><NewsList category={'technology'}/>}/>
           <Route path={routes.sports} render={()=><NewsList category={'sports'}/>}/>
           <Route path={routes.science} render={()=><NewsList category={'science'}/>}/>
-
-          {/* <Route path={routes.itemDetails} component={ItemDetails}/> */}
-          <Footer/>
+          <Route path={routes.itemDetails} component={ItemDetails}/>
         </div>
       </Router>
     </Provider>
-    
   );
 }

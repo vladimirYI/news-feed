@@ -1,28 +1,11 @@
-.newslist {
-    margin-top: 20px;
-    border: 1px double #8080801c;
-}
-
-.newslist_dark {
-    color: white;
-    background: black;
-    transition: background 0.5s, color 1s;
-}
-
-.newslist_light {
-    color: black;
-    background: white;
-    transition: background 0.5s, color 1s;
-}
-
-.newslist__filter {
+.filterpanel__filter {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
 }
 
-.newslist__search {
+.filterpanel__search {
     width: 180px;
     height: 30px;
     border: 2px solid #008CBA;
@@ -31,7 +14,7 @@
     color: black;
 }
 
-.newslist__select{
+.filterpanel__select{
     width: 70px;
     height: 35px;
     border: 2px solid #008CBA;
@@ -39,7 +22,7 @@
     margin-left: 5px;
 }
 
-.newslist__button{
+.filterpanel__button{
     width: 70px;
     height: 35px;
     border-radius: 8px;
@@ -52,12 +35,12 @@
 }
 
 @media (max-width: 768px) {
-    .newslist__filter {
+    .filterpanel__filter {
         flex-direction: column;
         margin-top: 15px;
     }
     
-    .newslist__form {
+    .filterpanel__form {
         margin-top: 10px;
     }
 }

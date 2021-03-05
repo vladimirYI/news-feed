@@ -1,19 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {format, parseISO} from 'date-fns'
+import {format, parseISO} from 'date-fns';
 import style from './NewsItem.module.css';
-function NewsItem({data})  {
-    
+function NewsItem({data, setArticle})  {
     let {title, urlToImage, content, publishedAt, author} = data;
-    
     let parseDate = parseISO(publishedAt);
     let newTime = format(parseDate, 'dd/MMM/y kk:mm');
-    
     let newTitle = title.slice(0,40)+"...";
-
-    if (urlToImage === null) {
-        urlToImage = 'https://via.placeholder.com/300x200' 
-    }
   
     return (
         <div className={style.newsitem}>
@@ -26,7 +19,7 @@ function NewsItem({data})  {
                 <div>{author}</div>
                 <div>{newTime}</div>
             </div>
-            <button className={style.newsitem__button}>
+            <button className={style.newsitem__button} onClick={() => setArticle(data)}>
                 Read
             </button>
         </div>
@@ -34,7 +27,14 @@ function NewsItem({data})  {
 }
 
 NewsItem.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    setArticle: PropTypes.func
 };
 
-export default React.memo(NewsItem);
+export default React.memo(NewsItem, (prevProps, nextProps) => {
+    if(prevProps === nextProps) {
+        return false;
+    } else {
+        return true;
+    }
+});
