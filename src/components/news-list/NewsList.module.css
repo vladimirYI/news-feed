@@ -5,8 +5,57 @@
 .newslist_dark {
     color: white;
     background: black;
+    transition: background 0.5s, color 1s;
 }
 .newslist_light {
     color: black;
     background: white;
+    transition: background 0.5s, color 1s;
+}
+/* .newslist__input{
+    display: block;
+    margin: 0 auto;
+} */
+
+.newslist__filter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.newslist__search {
+    width: 180px;
+    height: 30px;
+    border: 2px solid #008CBA;
+    border-radius: 5px;
+    outline: none;
+    color: #9E9C9C;
+}
+.newslist__select{
+    width: 70px;
+    height: 35px;
+    border: 2px solid #008CBA;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.newslist__button{
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: #008CBA;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .newslist__filter {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .newslist__form {
+        margin-top: 10px;
+    }
 }

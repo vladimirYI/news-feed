@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "classnames": "^2.2.6",
+    "date-fns": "^2.18.0",
     "fontsource-roboto": "^4.0.0",
     "g": "^2.0.1",
     "prop-types": "^15.7.2",
