@@ -1,10 +1,10 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useSelector} from 'react-redux';
 import {selectTheme} from '../../store';
 import {Themes} from '../../store';
-import cx from 'classnames';
 import style from './Pagination.module.css';
 
 export function Pagination ({newsPerPage, totalNews, paginate}) {
@@ -14,6 +14,7 @@ export function Pagination ({newsPerPage, totalNews, paginate}) {
     for (let i = 1; i <= Math.ceil(totalNews / newsPerPage); i++) {
         pageNumbers.push(i);
     }
+    
     return (
         <nav>
             <ul className={cx({

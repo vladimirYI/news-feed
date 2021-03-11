@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .header__menu {
     display: flex;
     justify-content: space-between;
@@ -11,9 +12,11 @@
     padding: 0;
     list-style-type: none;
 }
+
 .header__link {
     text-decoration: none;
 }
+
 .header__button {
     width: 70px;
     height: 35px;
@@ -25,30 +28,41 @@
     cursor: pointer;
     
 }
+
 .header_dark {
     background: black;
     transition: background 0.5s;
 }
+
 .header_dark a {
     color: white;
     transition: color 1s;
 }
+
 .header_light {
     background: white;
     transition: background 0.5s;
 }
+
 .header_light a {
     color: black;
     transition: color 1s;
 }
 
 @media (max-width: 768px) {
+    .header {
+        display: block;
+    }
+
     .header__menu {
         justify-content: space-between;
+        flex-wrap: wrap;
         width: 300px;
     }
+    
     .header__button {
         margin: 0 auto;
+        margin-top: 10px;
         display: flex;
         justify-content: center;
         align-items: center;

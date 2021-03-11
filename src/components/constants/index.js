@@ -3,6 +3,5 @@ export const routes = {
     technology: "/technology",
     sports: "/sports",
     science: "/science",
-    itemDetails: "/item-details",
-    filterList: "/filter-list"
+    itemDetails: "/item-details"
 };
