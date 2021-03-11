@@ -1,6 +1,6 @@
 export class NewsService {
     constructor() {
-        this._apiBase = 'https://newsapi.org/v2/top-headlines?country=us&';
+        this._apiBase = 'https://vladimir-news-backed.herokuapp.com/';
         this.numberNews = 40;
     }
 
