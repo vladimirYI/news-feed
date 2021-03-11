@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import NewsItem from '../news-item';
@@ -47,35 +47,37 @@ export function NewsList({category}) {
     const indexOfLastNews = currentPage * newsPerPage;
     const indexOfFirstNews = indexOfLastNews - newsPerPage;
     const currentNews = filteredNews.slice(indexOfFirstNews, indexOfLastNews);
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const handleSubmit = (event) => {
+    const paginate = useCallback((pageNumber) => 
+        setCurrentPage(pageNumber), []
+    );
+
+    const handleSubmit = useCallback((event) => {
         setState(state => {
             const copyData = [...state];
             let sortData = (directionSort === 'New') 
             ? copyData.sort((a,b) => {return a.publishedAt < b.publishedAt ? 1 : -1})
             : copyData.sort((a,b) => {return a.publishedAt > b.publishedAt ? 1 : -1});
             return sortData;
-        });
-        event.preventDefault();
-    };
+        })
+        event.preventDefault(), []  
+    }); 
+   
+    const handleChange = useCallback((event) => 
+        setDirectionSort(event.target.value), []
+    );
 
-    const handleChange = (event) => {
-        setDirectionSort(event.target.value);
-        event.preventDefault();
-    };
+    const setNewArticle = useCallback((data) => 
+        setCurrentArticle(data), []
+    );
 
-    const setNewArticle = (data) => {
-        setCurrentArticle(data);
-    };
-
-    const goPreviousBack = () => {
-        setCurrentArticle(undefined);
-    };
-
-    const changeTerm = (event) => {
-        setSearchTerm(event.target.value)
-    }
+    const goPreviousBack = useCallback(() => 
+        setCurrentArticle(undefined), []
+    );
+        
+    const changeTerm  = useCallback((event) => 
+        setSearchTerm(event.target.value), []
+    );
 
     useEffect(() => {
         setLoading(true);
@@ -93,7 +95,7 @@ export function NewsList({category}) {
             });
     
         return () => mounted = false;
-    }, [])
+    }, [category]);
     
     return (
         <div className={cx({
@@ -119,10 +121,11 @@ export function NewsList({category}) {
                 ? <ItemDetails article={currentArticle} goBack={goPreviousBack}/> 
                 :currentNews.map((item) => <NewsItem key={item.url} data = {item} setArticle={setNewArticle}/>)
             }
-            {(currentArticle!==undefined) 
+            {(currentArticle!==undefined || (currentNews.length < 5 && currentPage !== 8) ) 
                 ? null
                 : <Pagination newsPerPage={newsPerPage} totalNews={state.length} paginate={paginate}/>
-            }  
+            }
+            
         </div>
     );
 }

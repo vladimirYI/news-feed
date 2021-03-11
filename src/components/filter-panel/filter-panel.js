@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import style from './FilterPanel.module.css';
 
 export function FilterPanel({handleSubmit, handleChange, directionSort, changeTerm}) {
+    const handleChangeTerm = useCallback(event => changeTerm(event), []);
+    
     return (
         <div className={style.filterpanel__filter}>
-            <input className={style.filterpanel__search} type="text" placeholder="Search here..." onChange={event => changeTerm(event)}/>
+            <input className={style.filterpanel__search} type="text" placeholder="Search here..." onChange={handleChangeTerm}/>
             <form className={style.filterpanel__form} onSubmit={handleSubmit}>
             <label>
                 Sort by date:
@@ -17,8 +19,9 @@ export function FilterPanel({handleSubmit, handleChange, directionSort, changeTe
             <input className={style.filterpanel__button} type="submit" value="Submit" />
             </form>
         </div>
-    )
+    );
 }
+
 
 FilterPanel.propTypes = {
     handleSubmit: PropTypes.func,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import PropTypes from 'prop-types';
 import {format, parseISO} from 'date-fns';
 import style from './NewsItem.module.css';
@@ -7,6 +7,7 @@ function NewsItem({data, setArticle})  {
     let parseDate = parseISO(publishedAt);
     let newTime = format(parseDate, 'dd/MMM/y kk:mm');
     let newTitle = title.slice(0,40)+"...";
+    const handleChange = useCallback(() => setArticle(data), []);
   
     return (
         <div className={style.newsitem}>
@@ -19,7 +20,7 @@ function NewsItem({data, setArticle})  {
                 <div>{author}</div>
                 <div>{newTime}</div>
             </div>
-            <button className={style.newsitem__button} onClick={() => setArticle(data)}>
+            <button className={style.newsitem__button} onClick={handleChange}>
                 Read
             </button>
         </div>
@@ -31,10 +32,4 @@ NewsItem.propTypes = {
     setArticle: PropTypes.func
 };
 
-export default React.memo(NewsItem, (prevProps, nextProps) => {
-    if(prevProps === nextProps) {
-        return false;
-    } else {
-        return true;
-    }
-});
+export default React.memo(NewsItem);

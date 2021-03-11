@@ -20,7 +20,7 @@ export function Header() {
             document.body.classList.remove('body_dark');
             document.body.classList.add('body_light');
         }
-    });
+    },[theme]);
 
     return (
         <div className={cx({
