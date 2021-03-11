@@ -1,6 +1,6 @@
 export class NewsService {
     constructor() {
-        this._apiBase = 'http://newsapi.org/v2/top-headlines?country=us&';
+        this._apiBase = 'https://newsapi.org/v2/top-headlines?country=us&';
         this.numberNews = 40;
     }
 
