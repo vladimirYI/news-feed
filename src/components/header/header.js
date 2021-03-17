@@ -13,6 +13,8 @@ export function Header() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        localStorage.setItem('colorTheme', `${theme}`);
+        
         if (theme === Themes.dark) {
             document.body.classList.add('body_dark');
             document.body.classList.remove('body_light');

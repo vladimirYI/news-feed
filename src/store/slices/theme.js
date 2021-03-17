@@ -6,7 +6,7 @@ export const Themes = {
 }
 
 const initialState = {
-    theme: Themes.light
+    theme: localStorage.getItem('colorTheme') || Themes.light
 }
 
 export const themeSlice = createSlice({

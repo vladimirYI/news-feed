@@ -25,11 +25,17 @@ export function NewsList({category}) {
     const {theme} = useSelector(selectTheme);
 
     const filteredNews = state.filter((news) => {
-        if (news.content === null) {
-            return news.content = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
+        const regExp = new RegExp("^(http|https)://", "i");
+        const match = regExp.test(news.author);
+
+        if (match) {
+            return news.author = 'Url';
         }
         if (news.author === null) {
             return news.author = 'Unknown';
+        }
+        if (news.content === null) {
+            return news.content = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
         }
         if (news.urlToImage === null) {
             return news.urlToImage = 'https://via.placeholder.com/300x200' ;
